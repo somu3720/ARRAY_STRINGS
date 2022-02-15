@@ -1,0 +1,25 @@
+steps:
+res[i][j] = matrix[j][i];
+
+
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+        
+        int n = matrix.length; // row
+        int m = matrix[0].length; //column
+        
+        int res[][] = new int[m][n];  // col*row -> dimension of result
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                res[i][j] = matrix[j][i];
+            }
+        }
+        
+        return res;
+    }
+    
+}
+
