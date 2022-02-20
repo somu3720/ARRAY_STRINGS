@@ -1,0 +1,29 @@
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        
+        int small = 0;
+        int equal = 0;
+        
+        for(int n : nums)
+        {
+            if(n < target)
+            {
+                small++;
+            }
+            
+            else if(n == target)
+            {
+                equal++;
+            }
+        }
+        
+        List<Integer> res = new ArrayList<>(equal);
+        
+        for(int i = small; i < small+equal;i++)
+        {
+            res.add(i);
+        }
+        
+        return res;
+    }
+}
