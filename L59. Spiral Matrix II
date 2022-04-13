@@ -1,0 +1,50 @@
+class Solution {
+    public int[][] generateMatrix(int n) {
+        
+        int row_begin = 0;
+        int row_end = n-1;
+        int col_begin = 0;
+        int col_end = n - 1;
+        int res[][] = new int[n][n];
+        
+       int counter = 1;
+        
+        while(row_begin <= row_end && col_begin <= col_end)
+        {
+            for(int i = col_begin; i <= col_end; i++)
+            {
+                res[row_begin][i] = counter++;
+            }
+            row_begin++;
+            
+            for(int i = row_begin; i <= row_end; i++)
+            {
+                res[i][col_end] = counter++;
+            }
+            col_end--;
+            
+            
+            if(col_begin <= col_end)
+            {
+                for(int i = col_end; i >= col_begin; i--)
+                {
+                    res[row_end][i] = counter++;
+                }
+                
+                row_end--;
+            }
+            
+            if(row_begin <= row_end)
+            {
+                for(int i =row_end; i >= row_begin; i--)
+                {
+                    res[i][col_begin] = counter++;
+                }
+                col_begin++;
+            }
+
+        }
+        
+        return res;
+    }
+}
